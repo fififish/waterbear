@@ -1,0 +1,42 @@
+{
+   "maxBatchSize": 30000,
+   "maxTxSize": 250,
+   "sleepTimer": 50,
+   "clientTimer": 10000,
+   "broadcastTimer": 10000,
+   "tParameter": 0,
+   "verbose": true,
+   "evalMode": 0,
+   "evalInterval" : 10,
+   "cryptoOpt": 0,
+   "local": true,
+   "maliciousNode": true,
+   "maliciousMode": 0,
+   "maliciousNID": "1,2",
+   "splitPorts": false,
+   "logOpt": 0,
+   "consensus" : 14,
+   "RBCType" : 1,
+   "replicas": [
+      {
+         "id": "0",
+         "host": "localhost",
+         "port": "11000"
+      },
+      {
+         "id": "1",
+         "host": "localhost",
+         "port": "11001"
+      },
+      {
+         "id": "2",
+         "host": "localhost",
+         "port": "11002"
+      },
+      {
+         "id": "3",
+         "host": "localhost",
+         "port": "11003"
+      }
+   ]
+}

@@ -1,0 +1,50 @@
+// Implements the network layer services for the library
+
+syntax = "proto3";
+
+package communication;
+option go_package = "proto/communication";
+
+// The service definitions.
+service Send {
+
+  rpc SendMsg (RawMessage) returns (Empty) {}
+  rpc SendRequest (Request) returns (RawMessage) {}
+  rpc Join (RawMessage) returns (RawMessage) {}
+
+  rpc RBCSendByteMsg (RawMessage) returns (Empty) {}
+  rpc ABASendByteMsg (RawMessage) returns (Empty) {}
+  rpc PRFSendByteMsg (RawMessage) returns (Empty) {}
+
+  rpc ECRBCSendByteMsg (RawMessage) returns (Empty) {}
+  rpc CBCSendByteMsg (RawMessage) returns (Empty) {}
+  rpc EVCBCSendByteMsg (RawMessage) returns (Empty) {}
+  rpc MVBASendByteMsg (RawMessage) returns (Empty) {}
+  rpc RetrieveSendByteMsg (RawMessage) returns (Empty) {}
+  rpc SimpleSendByteMsg (RawMessage) returns (Empty) {}
+  rpc EchoSendByteMsg (RawMessage) returns (Empty) {}
+  rpc GCSendByteMsg (RawMessage) returns (Empty) {}
+}
+
+enum MessageType {
+    BROADCAST = 0;
+    JOIN = 1; 
+    WRITE = 2;
+    WRITE_BATCH = 3;
+};
+
+message RawMessage {
+  bytes msg = 1;
+  bool result = 2;
+}
+
+// Request with a request type and payload in bytes
+message Request {
+  MessageType type = 1;
+  bytes request = 2;
+  string version = 3;
+}
+
+// Empty response
+message Empty{
+}

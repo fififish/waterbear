@@ -1,0 +1,26 @@
+#### Configuration Options 
+
+consensus:
+ 1: WaterBear-C
+ 4: BEAT-Cobalt
+ 14: Waterbear-Q
+
+RBC Type:
+ 0: RBC (WaterBear)
+ 1: AVID (WaterBear QS)
+
+Notes on maliciousMode: This configuration denotes the experiments we conducted for the failure scenarios.
+ 0: 0--(f-1) are the malicious modes that always vote 0 in ABA
+ 1: (2f+1)--(3f) are the malicious nodes that always vote 0 in ABA
+ 2: malicious nodes don't propose RBC instance
+ 3: malicious nodes always vote the opposite value (XOR 1) in ABA
+
+ Use different combinations of consensus and RBC Type to run different protocols
+
+
+### Run the protocols: 
+
+Use different combinations of consensus and RBC to run different protocols. 
+Please refer to the paper for more details. 
+
+Zhang, Haibin, et al. "WaterBear: Asynchronous BFT with Information-Theoretic Security and Quantum Security." Cryptology ePrint Archive (2022).
