@@ -2,7 +2,7 @@
 
 Asynchronous fault-tolerant protocols for the following paper: 
 
-Zhang, Haibin, et al. "WaterBear: Asynchronous BFT with Information-Theoretic Security and Quantum Security." Cryptology ePrint Archive (2022).
+Sisi Duan, Haibin Zhang, and Boxin Zhao. "WaterBear: Asynchronous BFT with Information-Theoretic Security and Quantum Security." Cryptology ePrint Archive (2022).
 
 This repository implements five BFT protocols:
 
