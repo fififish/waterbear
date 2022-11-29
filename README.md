@@ -1,4 +1,4 @@
-# WaterBear Reposity
+# WaterBear Repository
 
 Asynchronous fault-tolerant protocols for the following paper: 
 
