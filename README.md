@@ -1,20 +1,24 @@
-# WaterBear Reposity
+# WaterBear Repository
 
 Asynchronous fault-tolerant protocols for the following paper: 
 
-Sisi Duan, Haibin Zhang, and Boxin Zhao. "WaterBear: Asynchronous BFT with Information-Theoretic Security and Quantum Security." Cryptology ePrint Archive (2022).
+Haibin Zhang, Sisi Duan, Boxin Zhao, and Liehuang Zhu. "WaterBear: Practical Asynchronous BFT Matching Security Guarantees of Partially Synchronous BFT." Usenix Security 2023, to appear. 
+
+Epring version: https://eprint.iacr.org/2022/021
 
 This repository implements five BFT protocols:
 
 + BEAT-Cobalt (BEAT0)
 + WaterBear-C (using Bracha's ABA and Cubic-RABA)
 + WaterBear-Q (using Bracha's ABA and Quadratic-RABA)
-+ WaterBear-QS-C (using AVID and  Cubic-RABA).
-+ WaterBear-QC-Q (using AVID and  Quadratic-RABA).
++ WaterBear-QS-C (using CT RBC and  Cubic-RABA).
++ WaterBear-QS-Q (using CT RBC and  Quadratic-RABA).
 
-Different RBC modules are implemented under src/broadcast, and differen ABA modules are impleented under src/aba. See the README files under each folder for details.
+Different RBC modules are implemented under src/broadcast, and different ABA modules are implemented under src/aba. See the README files under each folder for details.
 
 ### Configuration
+
+The codebase can only be compiled for x86 machines for now. The src/cryptolib/word/word_amd64.s needs to be changed to adapt to arm machines. 
 
 Configuration is under etc/conf.json
 
@@ -66,4 +70,4 @@ make build
 
 ### How to deploy the Amazon EC2 experiment
 
-+ Scripts are not included in this repository. 
++ Scripts are included in ec2 folder. 

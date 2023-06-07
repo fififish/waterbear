@@ -2,25 +2,25 @@ package consensus
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
+	"logging"
 	"message"
 	"quorum"
 	"time"
 	"utils"
 )
 
-
-
-var verbose bool   //verbose level
-var id int64  //id of server
-var iid int  //id in type int, start a RBC using it to instanceid
+var verbose bool //verbose level
+var id int64     //id of server
+var iid int      //id in type int, start a RBC using it to instanceid
 var errs error
-var queue Queue     // cached client requests
+var queue Queue         // cached client requests
 var queueHead QueueHead // hash of the request that is in the fist place of the queue
 var sleepTimerValue int // sleeptimer for the while loop that continues to monitor the queue or the request status
 var consensus ConsensusType
-var rbcType	RbcType
-var n int 
+var rbcType RbcType
+var n int
 var members []int
 var t1 int64
 var baseinstance int
@@ -28,23 +28,24 @@ var baseinstance int
 var batchSize int
 var requestSize int
 
-func ExitEpoch(){
+func ExitEpoch() {
 	t2 := utils.MakeTimestamp()
-	if (t2-t1) == 0{
+	if (t2 - t1) == 0 {
 		log.Printf("Latancy is zero!")
 		return
 	}
-	if outputSize.Get() == 0{
+	if outputSize.Get() == 0 {
 		log.Printf("Finish zero instacne!")
 		return
 	}
-	log.Printf("*****epoch ends with  output size %v, latency %v ms, throughput %d, quorum tps %d", outputSize.Get(), t2-t1,int64(outputSize.Get()*batchSize*1000)/(t2-t1), int64(quorum.QuorumSize()*batchSize*1000)/(t2-t1))
-
+	log.Printf("*****epoch ends with  output size %v, latency %v ms, quorum tps %d", outputSize.Get(), t2-t1, int64(quorum.QuorumSize()*batchSize*1000)/(t2-t1))
+	p := fmt.Sprintf("%v %v %v %v %v %v %v", quorum.FSize(), batchSize, int64(outputSize.Get()*batchSize*1000)/(t2-t1), int64(quorum.QuorumSize()*batchSize*1000)/(t2-t1), t2-t1, requestSize, outputSize.Get())
+	logging.PrintLog(true, logging.EvaluationLog, p)
 }
 
-func CaptureRBCLat(){
+func CaptureRBCLat() {
 	t3 := utils.MakeTimestamp()
-	if (t3-t1) == 0{
+	if (t3 - t1) == 0 {
 		log.Printf("Latancy is zero!")
 		return
 	}
@@ -52,9 +53,9 @@ func CaptureRBCLat(){
 
 }
 
-func CaptureLastRBCLat(){
+func CaptureLastRBCLat() {
 	t3 := utils.MakeTimestamp()
-	if (t3-t1) == 0{
+	if (t3 - t1) == 0 {
 		log.Printf("Latancy is zero!")
 		return
 	}
@@ -64,16 +65,16 @@ func CaptureLastRBCLat(){
 
 func RequestMonitor() {
 	for {
-		if curStatus.Get()==READY && !queue.IsEmpty() { 
+		if curStatus.Get() == READY && !queue.IsEmpty() {
 			curStatus.Set(PROCESSING)
 
 			batch := queue.GrabWtihMaxLenAndClear()
 			rops := message.RawOPS{
-				OPS : batch,
+				OPS: batch,
 			}
-			data,err := rops.Serialize()
-			if err != nil{
-				continue 
+			data, err := rops.Serialize()
+			if err != nil {
+				continue
 			}
 			StartProcessing(data)
 		} else {
@@ -81,7 +82,6 @@ func RequestMonitor() {
 		}
 	}
 }
-
 
 func HandleRequest(request []byte, hash string) {
 	//log.Printf("Handling request")
@@ -98,12 +98,11 @@ func HandleRequest(request []byte, hash string) {
 	queue.Append(request)
 }
 
-
 func HandleBatchRequest(requests []byte) {
 	requestArr := DeserializeRequests(requests)
 	//var hashes []string
 	Len := len(requestArr)
-	log.Printf("Handling batch requests with len %v\n",Len)
+	log.Printf("Handling batch requests with len %v\n", Len)
 	//for i:=0;i<Len;i++{
 	//	hashes = append(hashes,string(cryptolib.GenHash(requestArr[i])))
 	//}
@@ -124,8 +123,8 @@ func HandleBatchRequest(requests []byte) {
 	queue.AppendBatch(requestArr)
 }
 
-func DeserializeRequests(input []byte)[][]byte{
+func DeserializeRequests(input []byte) [][]byte {
 	var requestArr [][]byte
-	json.Unmarshal(input,&requestArr)
+	json.Unmarshal(input, &requestArr)
 	return requestArr
 }
