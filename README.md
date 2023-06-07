@@ -70,8 +70,4 @@ make build
 
 ### How to deploy the Amazon EC2 experiment
 
-<<<<<<< HEAD
 + Scripts are included in ec2 folder. 
-=======
-+ Scripts are not included in this repository. 
->>>>>>> 4b4f769195a72c9d6e59047cd5ce8f37c7dff923
