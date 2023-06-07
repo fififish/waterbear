@@ -5,7 +5,8 @@ Part of the codes is borrowed from the codebase of HoneyBadgerBFT: https://githu
 
 ## Prepare
 1. Install python 3
-2. Install "boto" and "fabric" to use EC2.
+2. Pip install "boto" and "fabric" to use EC2. We use the following fabric versions:
+Fabric3 1.14; Paramiko 2.7.2
 3. Amazon account --> My Security Credentials --> Access keys --> Create New Access Key --> Show Access Key --> store the keys (Access key ID and Secret access key).
 4. Generate key pair for SSH and connect regions.
 + ssh-keygen -m PEM, an rsa key pair is generated in the "~/.ssh/" directory. The default names are id_rsa and id_rsa.pub. You can change the names as required.
