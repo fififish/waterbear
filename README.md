@@ -4,7 +4,7 @@ Asynchronous fault-tolerant protocols for the following paper:
 
 Haibin Zhang, Sisi Duan, Boxin Zhao, and Liehuang Zhu. "WaterBear: Practical Asynchronous BFT Matching Security Guarantees of Partially Synchronous BFT." Usenix Security 2023. 
 
-Epring version: https://eprint.iacr.org/2022/021
+Eprint version: https://eprint.iacr.org/2022/021
 
 This repository implements five BFT protocols:
 
