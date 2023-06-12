@@ -2,7 +2,7 @@
 
 Asynchronous fault-tolerant protocols for the following paper: 
 
-Haibin Zhang, Sisi Duan, Boxin Zhao, and Liehuang Zhu. "WaterBear: Practical Asynchronous BFT Matching Security Guarantees of Partially Synchronous BFT." Usenix Security 2023, to appear. 
+Haibin Zhang, Sisi Duan, Boxin Zhao, and Liehuang Zhu. "WaterBear: Practical Asynchronous BFT Matching Security Guarantees of Partially Synchronous BFT." Usenix Security 2023. 
 
 Epring version: https://eprint.iacr.org/2022/021
 
@@ -30,7 +30,10 @@ Change "consensus" to switch between the protocols. See note.txt for details.
 
 + enter the directory and run the following commands
 ```
-make all 
+export GOPATH=$PWD
+export GOBIN=$PWD/bin
+export GO111MODULE=off
+make all
 ```
 
 + If you only need to update reomte github entries, run 
