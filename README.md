@@ -34,8 +34,6 @@ Change "consensus" to switch between the protocols. See note.txt for details.
 export GOPATH=$PWD
 export GOBIN=$PWD/bin
 export GO111MODULE=off 
-make go
-make install 
 make build
 ```
 
