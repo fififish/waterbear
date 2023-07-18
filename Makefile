@@ -1,6 +1,9 @@
 go:
 	go get -u google.golang.org/grpc
 	go get -u golang.org/x/net
+	go get -u golang.org/x/text
+	go get -u golang.org/x/crypto/...
+	go get -u golang.org/x/sys
 	go get -u google.golang.org/genproto/
 
 install:
