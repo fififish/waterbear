@@ -35,7 +35,7 @@ export GOBIN=$PWD/bin
 export GO111MODULE=off
 ```
 
-+ If you need to update grpc, nex and genproto, run
++ If you need to update grpc, net, genproto and so on, run
 ```
 make go
 ```
