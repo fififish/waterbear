@@ -14,6 +14,3 @@ build:
 	go install src/main/client.go
 	go install src/main/keygen.go
 
-all:
-	go install build
-	

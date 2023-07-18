@@ -27,16 +27,19 @@ Change "consensus" to switch between the protocols. See note.txt for details.
 ### Installation && How to run the code
 
 #### Install dependencies 
++ go version: go1.15.14 linux/amd64
 
-+ enter the directory and run the following commands
++ enter the ./waterbear/waterbear directory (setting up $PWD to ./waterbear/waterbear) and run the following commands
 ```
 export GOPATH=$PWD
 export GOBIN=$PWD/bin
-export GO111MODULE=off
-make all
+export GO111MODULE=off 
+make go
+make install 
+make build
 ```
 
-+ If you only need to update reomte github entries, run 
++ If you only need to update remote github entries, run 
 ```
 make install 
 ```
