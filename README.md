@@ -33,10 +33,14 @@ Change "consensus" to switch between the protocols. See note.txt for details.
 export GOPATH=$PWD
 export GOBIN=$PWD/bin
 export GO111MODULE=off
-make all
 ```
 
-+ If you only need to update reomte github entries, run 
++ If you need to update grpc, nex and genproto, run
+```
+make go
+```
+
++ If you only need to update remote github entries, run 
 ```
 make install 
 ```
