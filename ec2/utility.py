@@ -5,7 +5,7 @@ import time
 import json
 
 your_key_path = "~/.ssh/"
-your_key_name = "id_rsa"
+your_key_name = "usenix_rsa"
 
 
 if not boto.config.has_section('ec2'):
@@ -33,7 +33,7 @@ secgroups = {
 }
 regions = sorted(secgroups.keys())[::-1]
 
-NameFilter = 'FAST'
+NameFilter = 'USENIX'
 
 
 def getAddrFromEC2Summary(s):
@@ -63,7 +63,7 @@ def get_ec2_instances_ip(region):
                         print(currentIP)
         return result
     else:
-        print('Region failed', region)
+        #print('Region failed', region)
         return None
 
 
@@ -621,6 +621,7 @@ def computeMidThroughput(n=4, date=''):
 def latency_throughput(n=4, date='', filter=False):
     throughputArr = dict()
     latencyArr = dict()
+    cresult = dict()
     for ID in range(0, n):
         if date == '':
             filename = "var/log/" + str(ID) + "/" + time.strftime("%Y%m%d", time.localtime()) + "_Eva.log"
@@ -674,8 +675,10 @@ def latency_throughput(n=4, date='', filter=False):
 
             p = "(" + str(throughputDict[key]) + "," + str(float(avg) / 1000) + ") "
             dfile.write(p)
+            cresult[throughputDict[key]] = float(avg) / 1000
 
     dfile.close()
+    return cresult
 
 
 def computeLatency(n=4, date='', filter=False):
