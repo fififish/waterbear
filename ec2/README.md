@@ -36,7 +36,7 @@ ipAll()
 ```
 4. If there too many servers, for example 40, set the "limits.conf" for each instace. Choose arbitrary instace
 ```
-fab -i ~/.ssh/zbx_id_rsa.pem -u ubuntu -P -H [IP] fetchLimit
+fab -i ~/.ssh/id_rsa.pem -u ubuntu -P -H [IP] fetchLimit
 ```
 download it to your local etc/, add “* - nofile 65535” in "limits.conf". Then updown the "limits.conf"
 to each instance by
