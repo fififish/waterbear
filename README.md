@@ -25,22 +25,26 @@ Configuration is under etc/conf.json
 Change "consensus" to switch between the protocols. See note.txt for details. 
 
 ### Experimental environment && Dependency
-
+last accessed:20230808
 + system: ubuntu 20.04
 + golang: go1.15.14 linux/amd64
-+ google.golang.org/grpc: 1.35.0
-+ github.com/cbergoon/merkletree: 0.1.0
-+ golang.org/x/net: 
-+ golang.org/x/text: 
-+ golang.org/x/crypto: 
-+ golang.org/x/sys: 
-+ google.golang.org/genproto: 
-+ github.com/klauspost/reedsolomon: 
-+ github.com/klauspost/cpuid:
-+ github.com/golang/protobuf: 
++ google.golang.org/grpc: v1.57.0
++ github.com/cbergoon/merkletree: v1.11.8
++ golang.org/x/net: v0.14.0
++ golang.org/x/text: v0.12.0
++ golang.org/x/crypto: v0.12.0
++ golang.org/x/sys: v0.11.0
++ google.golang.org/genproto: v0.0.0-20230807174057-1744710a1577
++ github.com/klauspost/reedsolomon: v1.11.8
++ github.com/klauspost/cpuid: v2.2.5
++ github.com/golang/protobuf: v1.5.3
 
+NOTE: If one can not download the dependencies above, one can download all dependencies from branch
+[waterbear-with-dependencies](https://github.com/fififish/waterbear/tree/waterbear-with-dependencies).
+Copy three folders "github.com" "golang.org/x" "google.golang.org" in "src" to "src" in this project.
 
-### Installation && How to run the code
+### In
+stallation && How to run the code
 
 #### Install dependencies 
 
