@@ -4,7 +4,7 @@ The tutorial describes how to deploy our experiment on EC2 of AWS.
 Part of the codes is borrowed from the codebase of HoneyBadgerBFT: https://github.com/amiller/HoneyBadgerBFT
 
 ## Prepare
-1. Install python 3
+1. Install python 3.8.10 and ipython 8.14.0
 2. Pip install "boto" and "fabric" to use EC2. We use the following fabric versions:
 Fabric3 1.14; Paramiko 2.7.2
 3. Amazon account --> My Security Credentials --> Access keys --> Create New Access Key --> Show Access Key --> store the keys (Access key ID and Secret access key).
